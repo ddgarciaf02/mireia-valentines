@@ -7,6 +7,7 @@ const successCard = document.getElementById('success-card');
 
 const phrases = [
     "No 😢",
+    "¡No me quieres una mierda!",
     "¿Estás segura?",
     "¿De verdad?",
     "¡Piénsalo bien!",
@@ -134,12 +135,6 @@ createHearts();
 
 // 1. Loading Screen
 window.addEventListener('load', () => {
-    // Force scroll to top on load
-    if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-    }
-    window.scrollTo(0, 0);
-
     const loader = document.getElementById('loader');
     if (loader) {
         setTimeout(() => {
@@ -147,10 +142,59 @@ window.addEventListener('load', () => {
 
             setTimeout(() => {
                 loader.style.display = 'none';
-            }, 500);
-        }, 1000);
+
+                // Start Intro Sequence
+                playIntroSequence();
+            }, 100);
+        }, 200);
     }
 });
+
+function playIntroSequence() {
+    const intro = document.getElementById('intro');
+    const introHeart = document.querySelector('.intro-heart');
+    const introText1 = document.getElementById('intro-text-1');
+    const introText2 = document.getElementById('intro-text-2');
+    const questionCard = document.getElementById('question-card');
+
+    if (!intro || !introText1) return;
+
+    // 1. Show heart IMMEDIATELY (Start beating)
+    setTimeout(() => {
+        if (introHeart) introHeart.style.opacity = '1';
+    }, 100); // 100ms just to ensure DOM render
+
+    // 2. Hide Heart after ~3 seconds (2 beats * 1.5s = 3s)
+    setTimeout(() => {
+        if (introHeart) introHeart.style.opacity = '0';
+    }, 3100); // 100 + 3000 = 3100
+
+    // 3. Show first text AFTER heart has faded out
+    setTimeout(() => {
+        introText1.style.opacity = '1';
+    }, 4100); // Wait 1s for fade out
+
+    // 4. Fade out first text, show second
+    setTimeout(() => {
+        introText1.style.opacity = '0';
+        setTimeout(() => {
+            introText2.style.opacity = '1';
+        }, 1000);
+    }, 7100); // 4100 + 3000
+
+    // 5. End intro, reveal main card
+    setTimeout(() => {
+        intro.style.transition = 'opacity 1s ease';
+        intro.style.opacity = '0';
+
+        // Hide intro completely after fade
+        setTimeout(() => {
+            intro.style.display = 'none';
+            if (questionCard) questionCard.classList.remove('hidden-initially');
+        }, 1000);
+    }, 11100);
+}
+
 
 // 2. Scroll Animations
 const observerOptions = {
