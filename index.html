@@ -5,18 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>San Valentin❤️</title>
+    <title>Para Mireia ❤️</title>
 
     <!-- Social Meta Tags -->
-    <meta property="og:title" content="Mireia ❤️ David - San Valentín 2026">
-    <meta property="og:description" content="Espero que te guste mi amor ❤️">
+    <meta property="og:title" content="Para Mireia... 🌹">
+    <meta property="og:description" content="Una sorpresa especial por San Valentín ❤️">
     <meta property="og:image" content="assets/principal.png">
     <meta property="og:type" content="website">
-
-    <!-- iOS / Safari Web App & Optimization -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="assets/principal.png">
 
     <!-- Favicon -->
     <link rel="icon"
@@ -37,11 +32,30 @@
         <div class="heart-loader"></div>
     </div>
 
+    <!-- Intro Sequence -->
+    <div id="intro" class="intro-overlay">
+        <div class="intro-heart">
+            <svg viewBox="0 0 24 24" width="100%" height="100%" style="overflow: visible;">
+                <defs>
+                    <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff3366;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ff5c8a;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    fill="url(#heartGrad)" />
+            </svg>
+        </div>
+        <div class="intro-text" id="intro-text-1">Mireia...</div>
+        <div class="intro-text" id="intro-text-2">Tengo algo importante<br>que pedirte...</div>
+    </div>
+
     <div class="background-hearts"></div>
     <div class="overlay-texture"></div>
 
     <div class="container main-layout">
-        <div id="question-card" class="card fade-in">
+        <div id="question-card" class="card fade-in hidden-initially">
             <div class="image-wrapper">
                 <div class="image-container">
                     <img src="assets/principal.png" alt="Nosotros" class="couple-photo"
@@ -82,7 +96,7 @@
                 <button class="carousel-btn next" onclick="moveCarousel(1)">&#10095;</button>
             </div>
 
-            <p class="success-text reveal-on-scroll">Te quiero muchísimo</p>
+            <p class="success-text reveal-on-scroll" style="margin-bottom: 5px;">Te quiero muchísimo</p>
 
             <!-- Gift Hints Section -->
             <div class="hints-section reveal-on-scroll">
@@ -92,7 +106,7 @@
 
                     <!-- Dinner -->
                     <div class="hint-card" data-title="La Cena"
-                        onclick="toggleHint(this, 'Italiano - 20:00h 🍝', 'La Cena')">
+                        onclick="toggleHint(this, 'Italiano - 20:00h 🧙‍♂️', 'La Cena')">
                         <span class="hint-icon">🍽️</span>
                         <div class="hint-content">
                             <span class="hint-text">La Cena</span>
@@ -110,7 +124,7 @@
 
                     <!-- Gift 2 -->
                     <div class="hint-card" data-title="Regalo 2"
-                        onclick="toggleHint(this, 'Un capricho personal... 🎀', 'Regalo 2')">
+                        onclick="toggleHint(this, 'Un regalo para ti, y para mis ojos... 🎀', 'Regalo 2')">
                         <span class="hint-icon">🎁</span>
                         <div class="hint-content">
                             <span class="hint-text">Regalo 2</span>
